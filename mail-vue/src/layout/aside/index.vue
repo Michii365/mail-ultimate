@@ -171,13 +171,13 @@ function goDonate() {
   gap: 10px;
   color: #ffffff;
   transition: all 0.3s ease;
-  max-width: 240px;
+  max-width: 196px;
   padding: 0 10px;
   > div {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    max-width: calc(240px - 20px - 32px - 5px);
+    max-width: calc(196px - 20px - 32px - 5px);
   }
 
   .logo {
@@ -199,15 +199,16 @@ function goDonate() {
 
 /* 任务 4：品牌标题用全局展示字体（Bebas Neue / Montserrat），字号加大加粗。 */
 .title.title-display {
-  font-family: var(--font-display);
-  font-size: 26px;
-  font-weight: 700;
-  letter-spacing: .02em;
+  font-family: inherit;
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: 0;
 }
 
 /* 品牌标语：顶级规则（之前误嵌在 .title 里，编译成 .title .brand-tagline，实际是兄弟节点，样式从未生效）。 */
 .brand-tagline {
   margin: -4px 6px 10px 52px;
+  display: none;
   font-size: 10px;
   letter-spacing: .22em;
   text-transform: uppercase;
@@ -216,6 +217,7 @@ function goDonate() {
 
 /* 斯诺登视角：侧栏底部每日一句，点一下进隐私仪表盘。 */
 .aside-quote {
+  display: none;
   margin: 16px 12px 12px;
   padding: 12px;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
@@ -327,7 +329,7 @@ function goDonate() {
 
 .el-menu {
   border-right: 0;
-  width: 260px;
+  width: 216px;
 }
 
 :deep(.el-divider__text) {
