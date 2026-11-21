@@ -131,7 +131,7 @@ onBeforeUnmount(() => {
 }
 
 .el-aside {
-  width: auto;
+  width: 236px;
   transition: all 100ms ease;
 }
 
