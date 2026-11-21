@@ -2,31 +2,39 @@ name = "${NAME}"
 main = "src/index.js"
 compatibility_date = "2025-06-04"
 
+
 [observability]
 enabled = true
+
 
 [[routes]]
 pattern = "${CUSTOM_DOMAIN}"
 custom_domain = true
+
 
 [[d1_databases]]
 binding = "db"
 database_name = "cloud-mail"
 database_id = "${D1_DATABASE_ID}"
 
+
 [[kv_namespaces]]
 binding = "kv"
 id = "${KV_NAMESPACE_ID}"
+
 
 [[r2_buckets]]
 binding = "r2"
 bucket_name = "${R2_BUCKET_NAME}"
 
+
 [[send_email]]
 name = "forward"		#站内转发到已验证的其他邮箱，不限制单个地址
 
+
 [ai]
 binding = "ai"
+
 
 [assets]
 binding = "assets"
@@ -34,8 +42,11 @@ directory = "./dist"
 not_found_handling = "single-page-application"
 run_worker_first = true
 
+
 [triggers]
 crons = ["0 * * * *"]	#每小时执行；resetDaySendCount 仅在 UTC 0 点生效
+
+
 
 
 [vars]
@@ -47,5 +58,7 @@ admin = "${ADMIN}"
 jwt_secret = "${JWT_SECRET}"
 project_link = "${PROJECT_LINK}"
 
+
 [build]
-command = "pnpm --prefix ../mail-vue install && pnpm --prefix ../mail-vue run build"
+command = "pnpm --prefix ../mail-vue install --no-frozen-lockfile && pnpm --prefix ../mail-vue run build"
+
