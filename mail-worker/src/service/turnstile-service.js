@@ -2,26 +2,20 @@ import BizError from '../error/biz-error';
 import settingService from './setting-service';
 import { t } from '../i18n/i18n'
 
-
 const turnstileService = {
 
-
 	async verify(c, token) {
-
 
 		if (!token) {
 			throw new BizError(t('emptyBotToken'),400);
 		}
 
-
 		const settingRow = await settingService.query(c)
-
 
 		if (!settingRow.secretKey) {
 			// 未配置 Turnstile 密钥时跳过人机验证（默认关闭，配置了密钥才生效）
 			return;
 		}
-
 
 		let result;
 		try {
@@ -37,19 +31,16 @@ const turnstileService = {
 				})
 			});
 
-
 			result = await res.json();
 		} catch (e) {
 			throw new BizError(t('botVerifyFail'), 400);
 		}
-
 
 		if (!result || !result.success) {
 			throw new BizError(t('botVerifyFail'),400)
 		}
 	}
 };
-
 
 export default turnstileService;
 
